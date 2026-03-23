@@ -1,6 +1,6 @@
 class Solution {
     public boolean checkIfExist(int[] arr) {
-        Arrays.sort(arr);
+      
         HashSet<Integer> set = new HashSet<>();
        
        for(int num : arr)
