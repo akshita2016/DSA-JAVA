@@ -17,17 +17,19 @@ class Solution {
                   count --;
 
                }
-               if(count == 0 && (i-j+1 == p.length()) )
-               {
-                result.add(j);
-               }
-
-              if(i-j+1 == p.length())
+            
+              while(i-j+1 > p.length())
               {
                 if(a[s.charAt(j) - 'a']++ >=0)
                 count++;
                 j++;
               }   
+
+                 if(count == 0 )
+               {
+                result.add(j);
+               }
+
                        
           }
     return result;
