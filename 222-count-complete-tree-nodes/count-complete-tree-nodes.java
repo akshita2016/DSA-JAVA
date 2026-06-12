@@ -15,15 +15,28 @@
  */
 class Solution {
     public int countNodes(TreeNode root) {
-         if (root == null)
-            return 0;
-
-        if (root.left == null && root.right == null)
-            return 1;
-
-        int x = countNodes(root.left);
-        int y = countNodes(root.right);
-
-        return x + y + 1;
+        Queue<TreeNode> q = new LinkedList<>();
+        if(root == null) return 0;
+        q.offer(root);
+        int count =1;
+        while(!q.isEmpty())
+        {
+              int size =q.size();
+              for(int i =0 ;i<size ;i++)
+              {
+                TreeNode curr = q.poll();
+                if(curr.left!=null)
+                {
+                    q.offer(curr.left);
+                    count++;
+                }
+                if(curr.right!=null)
+                {
+                    q.offer(curr.right);
+                    count++;
+                }
+              }
+        }
+        return count;
     }
 }
