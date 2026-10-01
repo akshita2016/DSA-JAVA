@@ -3,7 +3,7 @@ class Solution {
         Arrays.sort(candies);
         int n = candies.length;
           
-
+        int ans =0;
           int low = 1;
           int high = candies[n-1];
           while(low<=high)
@@ -16,10 +16,12 @@ class Solution {
 
             }
             if(total>=k)
+            { ans = mid;
             low = mid+1;
+            }
             else
             high = mid-1;
           }
-       return high;
+       return ans;
     }
 }
