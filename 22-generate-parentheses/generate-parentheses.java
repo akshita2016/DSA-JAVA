@@ -1,20 +1,21 @@
 class Solution {
-    void generate(List<String> ans, String s, int open, int close, int n) {
-        if (open == n && close == n) {
-            ans.add(s);
+    ArrayList<String> result = new ArrayList<>();
+
+    public void generate(int n , int open , int close , String s)
+    {
+        if(open == n && close == n)
+        {
+            result.add(s);
             return;
         }
+        if(open > close)
+        generate(n,open,close+1,s+")");
 
-        if (open > close)
-            generate(ans, s + ")", open, close + 1, n);
-
-        if (open < n)
-            generate(ans, s + "(", open + 1, close, n);
+        if(open < n)
+        generate(n,open+1,close,s+"(");
     }
-
     public List<String> generateParenthesis(int n) {
-        List<String> ans = new ArrayList<>();
-        generate(ans, "", 0, 0, n);
-        return ans;
+        generate (n,0,0,"");
+        return result;
     }
 }
