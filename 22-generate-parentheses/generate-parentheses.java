@@ -8,11 +8,13 @@ class Solution {
             result.add(s);
             return;
         }
+          if(open < n)
+        generate(n,open+1,close,s+"("); 
+        
         if(open > close)
         generate(n,open,close+1,s+")");
 
-        if(open < n)
-        generate(n,open+1,close,s+"(");
+      
     }
     public List<String> generateParenthesis(int n) {
         generate (n,0,0,"");
