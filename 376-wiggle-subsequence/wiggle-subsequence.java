@@ -9,17 +9,11 @@ class Solution {
       {
         
         int curr = nums[i] - nums[i-1];
-        if(curr > 0 && diff <=0)
+        if((curr > 0 && diff <=0)  || (curr <0 && diff >=0))
         {
             count++;
             diff= curr;
         }
-        else if(curr <0 && diff >=0)
-        {
-            count++;
-            diff = curr;
-        }
-         
         
       }
       return count;
