@@ -7,22 +7,17 @@ class Solution {
             char ch = s.charAt(i);
             map.put(ch,i);
         }
-        int val =0;
-        int j =0;
-        int k =0;
+        int start =0 ; 
+        int end =0;
+
         for(int i =0 ; i<s.length() ; i++)
         {
-            char ch = s.charAt(i);
-             int num = map.get(ch);
-             while(j<num)
-             {
-                char c = s.charAt(j);
-                num = Math.max(num,map.get(c));
-                j++;
-             }
-             
-       result.add(num-i+1);
-       i=num;
+           end = Math.max(end,map.get(s.charAt(i)));
+           if(i==end)
+           {
+            result.add(end-start+1);
+            start = i+1;
+           }
         }
         return result;
     }
